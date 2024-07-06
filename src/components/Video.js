@@ -12,10 +12,10 @@ const Video = () => {
       
       <div className={isChatActive? 'video-flex-div ':'video-full-flex-div ' }>
       
-          {isScreenShareActive && <div className='screenShare-div'><ReactPlayer width="100%" height="90%" className="screen-video" url={screenShareStream}  playing /></div>}
+          {isScreenShareActive && <div className='screenShare-div'><ReactPlayer width="100%" height="90%" className="screen-video" url={screenShareStream} muted playing /></div>}
         
         
-          {isScreenShareActiveRemote && <div className='screenShare-div'><ReactPlayer width="100%" height="90%" className="screen-video" url={remoteScreenShareStream}  playing  /></div>}
+          {isScreenShareActiveRemote && <div className='screenShare-div'><ReactPlayer width="100%" height="90%" className="screen-video" url={remoteScreenShareStream} muted playing  /></div>}
         
         <div className={isScreenShareActive|| isScreenShareActiveRemote ? 'video-when-screenshare-on':'video-when-screenshare-off'}>
           {clients.map((e,i)=>userMap[socketId].peerId==e.peerId?<ReactPlayer key={i } width={isScreenShareActive||isScreenShareActiveRemote?"100%":"85%"} height={isScreenShareActive||isScreenShareActiveRemote?"40%":"90%"} className="my-video" url={localStream} muted playing  />:<ReactPlayer width={isScreenShareActive||isScreenShareActiveRemote?"100%":"85%"} height={isScreenShareActive||isScreenShareActiveRemote?"40%":"90%"} className="other-video" key={i} url={remoteStream}  playing />)}
